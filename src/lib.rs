@@ -2213,7 +2213,7 @@ impl Build {
         }
     }
 
-    fn get_ar(&self) -> Result<(Command, String), Error> {
+    pub fn get_ar(&self) -> Result<(Command, String), Error> {
         if let Some(ref p) = self.archiver {
             let name = p.file_name().and_then(|s| s.to_str()).unwrap_or("ar");
             return Ok((self.cmd(p), name.to_string()));
